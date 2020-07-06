@@ -19,7 +19,7 @@ namespace automation::engine
         }
     }
 
-    void Manager::render(sdl::RendererWrapper &renderer)
+    void Manager::render(sdl::Renderer &renderer)
     {
         for (const auto &entity : m_entities)
         {

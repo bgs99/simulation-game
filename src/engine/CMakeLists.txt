@@ -1,5 +1,5 @@
-add_library(engine)
+add_library(engine SHARED)
 
-target_link_libraries(engine PRIVATE sdl)
+target_link_libraries(engine PUBLIC sdl)
 
-target_sources(engine PRIVATE Engine.cpp Manager.cpp)
+target_sources(engine PRIVATE Engine Manager)

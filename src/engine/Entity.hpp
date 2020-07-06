@@ -1,6 +1,7 @@
 #pragma once
 
-#include "sdl/SDLWrappers.hpp"
+#include "sdl/Events.hpp"
+#include "sdl/Renderer.hpp"
 
 namespace automation::engine
 {
@@ -10,7 +11,7 @@ namespace automation::engine
     public:
         virtual void handle_event(SDL_Event event) = 0;
         virtual void update() = 0;
-        virtual void render(sdl::RendererWrapper &renderer) = 0;
+        virtual void render(sdl::Renderer &renderer) = 0;
     };
 
 } // namespace automation::engine

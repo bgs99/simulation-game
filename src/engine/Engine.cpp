@@ -41,7 +41,7 @@ namespace automation::engine
         m_manager.update();
     }
 
-    void Engine::render(sdl::RendererWrapper &renderer)
+    void Engine::render(sdl::Renderer &renderer)
     {
         renderer.set_color(100, 200, 100);
 
