@@ -10,6 +10,7 @@ namespace automation::engine {
     class Manager : public Entity
     {
     public:
+        Manager(Engine & engine);
         void handle_event(SDL_Event event) override;
         void update() override;
         void render(sdl::Renderer &renderer) override;

@@ -17,7 +17,7 @@ namespace automation::engine
             {
                 handle_event(event);
             }
-            update();
+            m_manager.update();
             render(m_renderer);
         }
     }
@@ -34,11 +34,6 @@ namespace automation::engine
             m_manager.handle_event(event);
             break;
         }
-    }
-
-    void Engine::update()
-    {
-        m_manager.update();
     }
 
     void Engine::render(sdl::Renderer &renderer)

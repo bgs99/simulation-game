@@ -1,7 +1,11 @@
 add_library(sdl SHARED)
 
-find_package(SDL2 REQUIRED COMPONENTS SDL2::SDL2)
+include(FindPkgConfig)
 
-target_link_libraries(sdl SDL2::SDL2)
+pkg_search_module(SDL2 REQUIRED)
+pkg_search_module(SDL2IMAGE REQUIRED)
 
-target_sources(sdl PRIVATE SDL Events Renderer Window detail)
+# ${SDL2_LIBRARIES} points to -lSDL instead of -lSDL2 for some reason
+target_link_libraries(sdl ${SDL2IMAGE_LIBRARIES})
+
+target_sources(sdl PRIVATE SDL Events Renderer Window Texture detail)

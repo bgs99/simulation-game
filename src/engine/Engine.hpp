@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Entity.hpp"
 #include "Manager.hpp"
 
 #include "sdl/SDL.hpp"
@@ -10,7 +9,7 @@
 namespace automation::engine
 {
 
-    class Engine : public virtual Entity
+    class Engine
     {
     public:
         Engine() = default;
@@ -18,9 +17,8 @@ namespace automation::engine
         void stop();
 
     private:
-        void handle_event(SDL_Event event) override;
-        void update() override;
-        void render(sdl::Renderer &renderer) override;
+        void handle_event(SDL_Event event);
+        void render(sdl::Renderer &renderer);
 
         sdl::SDL m_sdl{};
         sdl::Window m_window{m_sdl};
@@ -28,7 +26,7 @@ namespace automation::engine
 
         bool m_running = false;
 
-        Manager m_manager;
+        Manager m_manager{*this};
     };
 
 } // namespace automation::engine
