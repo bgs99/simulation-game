@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-namespace automation::engine
+namespace automation::util
 {
 
     Vector2d::Vector2d(double x, double y)
@@ -40,4 +40,4 @@ namespace automation::engine
         return Vector2d{x / k, y / k};
     }
 
-} // namespace automation::engine
+} // namespace automation::util

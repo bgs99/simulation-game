@@ -1,6 +1,7 @@
 #include "Texture.hpp"
 
 #include "detail.hpp"
+#include "Renderer.hpp"
 
 #include <SDL2/SDL_image.h>
 

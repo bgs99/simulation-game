@@ -22,7 +22,7 @@ namespace automation::sdl::detail
         if (rv_fail(res))
         {
             auto error = SDL_GetError();
-            std::cerr << error << std::endl;
+            std::cerr << "SDL error: " << error << std::endl;
             throw error;
         }
         return res;

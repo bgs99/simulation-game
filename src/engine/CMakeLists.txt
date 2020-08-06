@@ -1,5 +1,5 @@
-add_library(engine SHARED)
+add_library(engine)
 
-target_link_libraries(engine PUBLIC sdl)
+target_link_libraries(engine PUBLIC sdl entities util)
 
-target_sources(engine PRIVATE Entity Engine Manager TextureManager Vector2d Sprite)
+target_sources(engine PRIVATE Engine Manager Sprite)

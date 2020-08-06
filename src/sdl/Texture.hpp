@@ -1,7 +1,5 @@
 #pragma once
 
-#include "Renderer.hpp"
-
 #include <SDL2/SDL.h>
 
 #include <filesystem>
@@ -9,10 +7,13 @@
 namespace automation::sdl
 {
 
+    class Renderer;
+
     class Texture
     {
     public:
         Texture(Renderer &renderer, const std::filesystem::path &path);
+        Texture(Texture & other) = delete;
         ~Texture();
 
         SDL_Texture *get();

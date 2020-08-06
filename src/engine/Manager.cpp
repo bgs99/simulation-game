@@ -2,10 +2,6 @@
 
 namespace automation::engine
 {
-    Manager::Manager(Engine &engine)
-        : Entity{engine}
-    {
-    }
 
     void Manager::handle_event(SDL_Event event)
     {

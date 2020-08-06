@@ -1,5 +1,7 @@
 add_subdirectory(sdl)
 add_subdirectory(engine)
+add_subdirectory(entities)
+add_subdirectory(util)
 
 add_executable(main)
 

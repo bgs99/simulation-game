@@ -1,5 +1,7 @@
 #include "Engine.hpp"
 
+#include "entities/Human.hpp"
+
 namespace automation::engine
 {
 
@@ -11,6 +13,10 @@ namespace automation::engine
     void Engine::run()
     {
         m_running = true;
+
+        m_manager.m_entities.emplace_back(
+            static_cast<Entity *>(
+                new entities::Human{util::Vector2d{50, 50}}));
         while (m_running)
         {
             for (const auto event : sdl::get_events())

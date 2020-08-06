@@ -1,6 +1,6 @@
 #pragma once
 
-namespace automation::engine
+namespace automation::util
 {
     class Vector2d
     {
@@ -19,4 +19,4 @@ namespace automation::engine
         double y;
     };
 
-} // namespace automation::engine
+} // namespace automation::util

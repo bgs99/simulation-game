@@ -26,7 +26,7 @@ namespace automation::engine
 
         bool m_running = false;
 
-        Manager m_manager{*this};
+        Manager m_manager;
     };
 
 } // namespace automation::engine
