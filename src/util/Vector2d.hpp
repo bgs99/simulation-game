@@ -5,20 +5,69 @@ namespace automation::util
     class Vector2d
     {
     public:
-        Vector2d();
-        Vector2d(double x, double y);
+        constexpr Vector2d()
+            : x{0}, y{0}
+        {
+        }
 
-        auto operator+=(Vector2d other) -> void;
-        auto operator-=(Vector2d other) -> void;
-        auto operator/=(double k) -> void;
-        auto operator*=(double k) -> void;
-        auto operator+(Vector2d other) -> Vector2d;
-        auto operator-(Vector2d other) -> Vector2d;
-        auto operator/(double k) -> Vector2d;
-        auto operator*(double k) -> Vector2d;
+        constexpr Vector2d(double x, double y)
+            : x{x}, y{y}
+        {
+        }
 
-        auto length() -> double;
-        auto normalize() -> Vector2d;
+        constexpr auto length() -> double
+        {
+            return std::sqrt(x * x + y * y);
+        }
+
+        constexpr auto normalize() -> Vector2d
+        {
+            return *this / length();
+        }
+
+        constexpr auto operator+=(Vector2d other) -> void
+        {
+            x += other.x;
+            y += other.y;
+        }
+
+        constexpr auto operator-=(Vector2d other) -> void
+        {
+            x -= other.x;
+            y -= other.y;
+        }
+
+        constexpr auto operator*=(double k) -> void
+        {
+            x *= k;
+            y *= k;
+        }
+
+        constexpr auto operator/=(double k) -> void
+        {
+            x /= k;
+            y /= k;
+        }
+
+        constexpr auto operator+(Vector2d other) -> Vector2d
+        {
+            return Vector2d{x + other.x, y + other.y};
+        }
+
+        constexpr auto operator-(Vector2d other) -> Vector2d
+        {
+            return Vector2d{x - other.x, y - other.y};
+        }
+
+        constexpr auto operator*(double k) -> Vector2d
+        {
+            return Vector2d{x * k, y * k};
+        }
+
+        constexpr auto operator/(double k) -> Vector2d
+        {
+            return Vector2d{x / k, y / k};
+        }
 
         double x;
         double y;
