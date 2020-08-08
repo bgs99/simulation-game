@@ -17,17 +17,22 @@ namespace automation::sdl
         SDL_DestroyRenderer(m_ptr);
     }
 
-    SDL_Renderer *Renderer::get()
+    auto Renderer::get() -> SDL_Renderer *
     {
         return m_ptr;
     }
 
-    void Renderer::set_color(int8_t red, int8_t green, int8_t blue, int8_t alpha)
+    auto Renderer::move(util::Vector2d offset) -> void
+    {
+        m_pos += offset;
+    }
+
+    auto Renderer::set_color(int8_t red, int8_t green, int8_t blue, int8_t alpha) -> void
     {
         detail::sdl_assert(SDL_SetRenderDrawColor, m_ptr, red, green, blue, alpha);
     }
 
-    Texture &Renderer::load_texture(const fs::path &path)
+    auto Renderer::load_texture(const fs::path &path) -> Texture &
     {
         auto it = m_cache.find(path);
 
@@ -43,10 +48,11 @@ namespace automation::sdl
         return *it->second;
     }
 
-    void Renderer::render_texture(const std::filesystem::path &texture, util::Vector2d position)
+    auto Renderer::render_texture(const std::filesystem::path &texture, util::Vector2d position) -> void
     {
         SDL_Rect destination;
         destination.h = destination.w = 48;
+        position -= m_pos;
         destination.x = position.x;
         destination.y = position.y;
 
@@ -61,12 +67,12 @@ namespace automation::sdl
             SDL_RendererFlip::SDL_FLIP_NONE);
     }
 
-    void Renderer::clear()
+    auto Renderer::clear() -> void
     {
         detail::sdl_assert(SDL_RenderClear, m_ptr);
     }
 
-    void Renderer::present()
+    auto Renderer::present() -> void
     {
         SDL_RenderPresent(m_ptr);
     }

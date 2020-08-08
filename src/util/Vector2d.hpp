@@ -5,15 +5,20 @@ namespace automation::util
     class Vector2d
     {
     public:
+        Vector2d();
         Vector2d(double x, double y);
 
-        Vector2d operator+(Vector2d other);
-        Vector2d operator-(Vector2d other);
-        Vector2d operator/(double k);
-        Vector2d operator*(double k);
+        auto operator+=(Vector2d other) -> void;
+        auto operator-=(Vector2d other) -> void;
+        auto operator/=(double k) -> void;
+        auto operator*=(double k) -> void;
+        auto operator+(Vector2d other) -> Vector2d;
+        auto operator-(Vector2d other) -> Vector2d;
+        auto operator/(double k) -> Vector2d;
+        auto operator*(double k) -> Vector2d;
 
-        double length();
-        Vector2d normalize();
+        auto length() -> double;
+        auto normalize() -> Vector2d;
 
         double x;
         double y;

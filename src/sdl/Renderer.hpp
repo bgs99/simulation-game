@@ -19,18 +19,21 @@ namespace automation::sdl
         Renderer(Window &);
         ~Renderer();
 
-        SDL_Renderer *get();
+        auto get() -> SDL_Renderer *;
 
-        void set_color(int8_t red, int8_t green, int8_t blue, int8_t alpha = 255);
-        void render_texture(const std::filesystem::path & texture, util::Vector2d position);
-        void clear();
-        void present();
+        auto move(util::Vector2d offset) -> void;
+
+        auto set_color(int8_t red, int8_t green, int8_t blue, int8_t alpha = 255) -> void;
+        auto render_texture(const std::filesystem::path &texture, util::Vector2d position) -> void;
+        auto clear() -> void;
+        auto present() -> void;
 
     private:
-        Texture &load_texture(const std::filesystem::path & path);
+        auto load_texture(const std::filesystem::path &path) -> Texture &;
 
         SDL_Renderer *m_ptr;
         std::map<std::filesystem::path, std::unique_ptr<sdl::Texture>> m_cache;
+        util::Vector2d m_pos;
     };
 
 } // namespace automation::sdl
