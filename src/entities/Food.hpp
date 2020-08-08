@@ -5,10 +5,10 @@
 namespace automation::entities
 {
 
-    class Tree : public engine::Sprite
+    class Food : public engine::Sprite
     {
     public:
-        Tree(util::Vector2d position);
+        Food(util::Vector2d position);
 
     private:
         std::filesystem::path sprite_path() const override;

@@ -1,4 +1,4 @@
-add_library(sdl)
+add_library(sdl SHARED)
 
 include(FindPkgConfig)
 

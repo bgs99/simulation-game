@@ -1,6 +1,6 @@
 #pragma once
 
-#include "engine/Sprite.hpp"
+#include "Sprite.hpp"
 
 namespace automation::entities
 {
