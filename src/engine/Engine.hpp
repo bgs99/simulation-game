@@ -13,12 +13,14 @@ namespace automation::engine
     {
     public:
         Engine() = default;
-        void run();
-        void stop();
+        auto run() -> void;
+        auto stop() -> void;
 
     private:
-        void handle_event(SDL_Event event);
-        void render(sdl::Renderer &renderer);
+        auto handle_event(SDL_Event event) -> void;
+        auto render(sdl::Renderer &renderer) -> void;
+
+        auto handle_movement_event(SDL_Event event) -> bool;
 
         sdl::SDL m_sdl{};
         sdl::Window m_window{m_sdl};
